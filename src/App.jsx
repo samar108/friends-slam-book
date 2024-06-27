@@ -12,6 +12,17 @@ export default function App() {
   const [favourite, setFavourite] = useState(false);
 
   useEffect(() => {
+
+    if(localStorage.getItem('editedPeople')) {
+      const editedPeople = JSON.parse(localStorage.getItem('editedPeople'));
+      setName(editedPeople.name);
+      setContact(editedPeople.contact);
+      setAge(editedPeople.age);
+      setBirthday(editedPeople.birthday);
+      setHobbies(editedPeople.hobbies);
+      localStorage.removeItem('editedPeople');
+    }
+    
     const checkBirthday = () => {
       // Get the existing people data from local storage
       const existingPeople = JSON.parse(localStorage.getItem('people')) || [];
