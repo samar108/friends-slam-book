@@ -65,7 +65,6 @@ export default function App() {
         });
       }
       const webhookUrl = 'https://discord.com/api/webhooks/token/key';
-      const message = 'Hello, world!';
       await sendMessage(message, webhookUrl);
     };
 
